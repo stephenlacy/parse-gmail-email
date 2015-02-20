@@ -37,11 +37,11 @@ module.exports = function(data, cb) {
   email.id = data.id;
   email.threadId = data.threadId;
   email.snippet = data.snippet;
-  var parsedFrom = addressparser(email.from);
+  var parsedFrom = addressparser(email.from)[0];
 
   email.from = {
-    name: (parsedFrom !== null ? parsedFrom.name : void 0) || '',
-    address: (parsedFrom !== null ? parsedFrom.address : void 0) || email.from
+    name: parsedFrom.name || '',
+    address: parsedFrom.address
   };
 
   if (email.from.name === '' || email.from.name === ' ') {
