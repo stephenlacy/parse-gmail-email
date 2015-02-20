@@ -9,6 +9,7 @@ describe('parseEmail', function() {
 
   it('should parse the google email data to a usable object', function(done) {
     parseEmail(email, function(err, data) {
+      // console.log(data);
       should(err).equal(null);
       should.exist(data);
       should.exist(data.from.name);
@@ -48,7 +49,27 @@ describe('parseEmail', function() {
     });
   });
 
-  it('should correctly place attachments', function(done) {
+  it('should correctly parse from', function(done) {
+    parseEmail(email, function(err, data) {
+      should.exist(data.from);
+      should.equal(data.from.address, 'me@slacy.me');
+      should.equal(data.from.name, 'Steve Lacy');
+
+      done();
+    });
+  });
+
+  it('should correctly parse to', function(done) {
+    parseEmail(email, function(err, data) {
+      should.exist(data.to);
+      should.equal(data.to[0].address, 'me@slacy.me');
+      should.equal(data.to[0].name, 'Steve Lacy');
+
+      done();
+    });
+  });
+
+  it('should correctly place attachment ids and filenames', function(done) {
     parseEmail(email, function(err, data) {
       should.exist(data.attachments['2']);
       should.exist(data.attachments['2'].filename);
