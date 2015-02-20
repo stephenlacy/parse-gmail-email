@@ -12,7 +12,7 @@ describe('parseEmail', function() {
       should(err).equal(null);
       should.exist(data);
       should.exist(data.from.name);
-      should.exist(data.from.email);
+      should.exist(data.from.address);
       should.exist(data.to);
       should.exist(data.to[0]);
       should.exist(data.message);

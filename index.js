@@ -41,11 +41,11 @@ module.exports = function(data, cb) {
 
   email.from = {
     name: (parsedFrom !== null ? parsedFrom.name : void 0) || '',
-    email: (parsedFrom !== null ? parsedFrom.address : void 0) || email.from
+    address: (parsedFrom !== null ? parsedFrom.address : void 0) || email.from
   };
 
   if (email.from.name === '' || email.from.name === ' ') {
-    email.from.name = email.from.email;
+    email.from.name = email.from.address;
   }
 
 
