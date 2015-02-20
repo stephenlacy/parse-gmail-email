@@ -29,6 +29,9 @@ module.exports = function(data, cb) {
     if (header.name && header.name === 'Subject') {
       email.subject = header.value;
     }
+    if (header.name && header.name === 'Cc') {
+      email.cc = header.value;
+    }
   }
 
   email.id = data.id;
@@ -41,12 +44,13 @@ module.exports = function(data, cb) {
     email: (parsedFrom !== null ? parsedFrom.address : void 0) || email.from
   };
 
-
-  email.to = addressparser(email.to);
-
   if (email.from.name === '' || email.from.name === ' ') {
     email.from.name = email.from.email;
   }
+
+
+  email.to = addressparser(email.to);
+  email.cc = addressparser(email.cc);
 
   if (data.payload.parts[0]) {
     var parts = data.payload.parts;

@@ -36,6 +36,10 @@
     "value": "Steve Lacy <me@slacy.me>"
    },
    {
+    "name": "Cc",
+    "value": "test@test.com, Aaron Murray <funkytek@wearefractal.com>"
+   },
+   {
     "name": "Date",
     "value": "Wed, 18 Feb 2015 15:02:53 +0000"
    },

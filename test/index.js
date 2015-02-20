@@ -11,7 +11,6 @@ describe('parseEmail', function() {
     parseEmail(email, function(err, data) {
       should(err).equal(null);
       should.exist(data);
-      data.subject.should.equal('Subject here');
       should.exist(data.from.name);
       should.exist(data.from.email);
       should.exist(data.to);
@@ -19,8 +18,31 @@ describe('parseEmail', function() {
       should.exist(data.message);
       should.exist(data.snippet);
       should.exist(data.attachments);
+
+      done();
+    });
+  });
+
+  it('should correctly parse CCs', function(done) {
+    parseEmail(email, function(err, data) {
+      should.exist(data.cc);
+      should.exist(data.cc[0]);
+      should.exist(data.cc[1]);
+      should.exist(data.cc[0].address);
+      should.exist(data.cc[0].name);
+      should(data.cc[0].address).equal('test@test.com');
+      should(data.cc[0].address).equal('test@test.com');
+
+      done();
+    });
+  });
+
+  it('should correctly parse subject and message', function(done) {
+    parseEmail(email, function(err, data) {
+      should.exist(data.message);
+      should.exist(data.subject);
+      should.equal(data.subject, 'Subject here');
       should(data.message).be.type('string');
-      should(data.message).equal('This is the message');
 
       done();
     });
