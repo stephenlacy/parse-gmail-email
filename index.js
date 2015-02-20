@@ -36,6 +36,7 @@ module.exports = function(data, cb) {
 
   email.id = data.id;
   email.threadId = data.threadId;
+  email.labelIds = data.labelIds;
   email.snippet = data.snippet;
   var parsedFrom = addressparser(email.from)[0];
 

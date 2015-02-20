@@ -9,7 +9,6 @@ describe('parseEmail', function() {
 
   it('should parse the google email data to a usable object', function(done) {
     parseEmail(email, function(err, data) {
-      // console.log(data);
       should(err).equal(null);
       should.exist(data);
       should.exist(data.from.name);
@@ -87,6 +86,15 @@ describe('parseEmail', function() {
       should.exist(data.to[0]);
       should.exist(data.to[1]);
       should.exist(data.to[2]);
+
+      done();
+    });
+  });
+
+  it('should correctly parse label IDs', function(done) {
+    parseEmail(emailGroup, function(err, data) {
+      should.exist(data.labelIds);
+      should(data.labelIds[0]).equal('INBOX', 'CATEGORY_UPDATES');
 
       done();
     });
