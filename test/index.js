@@ -33,6 +33,7 @@ describe('parseEmail', function() {
       should.exist(data.cc[0].name);
       should(data.cc[0].address).equal('test@test.com');
       should(data.cc[0].address).equal('test@test.com');
+      should(data.cc[1].address).equal('funkytek@wearefractal.com');
 
       done();
     });

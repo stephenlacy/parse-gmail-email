@@ -41,16 +41,23 @@ module.exports = function(data, cb) {
 
   email.from = {
     name: parsedFrom.name || '',
-    address: parsedFrom.address
+    address: parsedFrom.address.toLowerCase()
   };
 
   if (email.from.name === '' || email.from.name === ' ') {
-    email.from.name = email.from.address;
+    email.from.name = email.from.address.toLowerCase();
   }
 
-
   email.to = addressparser(email.to);
+  for (var u = 0; u < email.to.length; u++) {
+    email.to[u].address = email.to[u].address.toLowerCase();
+  }
+
   email.cc = addressparser(email.cc);
+
+  for (var w = 0; w < email.cc.length; w++) {
+    email.cc[w].address = email.cc[w].address.toLowerCase();
+  }
 
   if (data.payload.parts && data.payload.parts[0]) {
     var parts = data.payload.parts;
