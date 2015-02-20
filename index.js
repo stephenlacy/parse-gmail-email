@@ -52,7 +52,7 @@ module.exports = function(data, cb) {
   email.to = addressparser(email.to);
   email.cc = addressparser(email.cc);
 
-  if (data.payload.parts[0]) {
+  if (data.payload.parts && data.payload.parts[0]) {
     var parts = data.payload.parts;
     email.attachments = {};
 
