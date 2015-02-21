@@ -6,11 +6,11 @@ var emailGroup = require('./fixtures/email-group.json');
 
 describe('parseEmail', function() {
 
-
   it('should parse the google email data to a usable object', function(done) {
     parseEmail(email, function(err, data) {
       should(err).equal(null);
       should.exist(data);
+      should.exist(data.headers);
       should.exist(data.from.name);
       should.exist(data.from.address);
       should.exist(data.to);
@@ -18,6 +18,21 @@ describe('parseEmail', function() {
       should.exist(data.message);
       should.exist(data.snippet);
       should.exist(data.attachments);
+
+      done();
+    });
+  });
+
+  it('should keep the original headers', function(done) {
+    parseEmail(email, function(err, data) {
+      should.exist(data.headers);
+      should.exist(data.headers['Delivered-To']);
+      should.exist(data.headers.Received);
+      should.exist(data.headers.Subject);
+      should.exist(data.headers.From);
+      should.exist(data.headers.To);
+      should.exist(data.headers.Cc);
+      should.exist(data.headers.Date);
 
       done();
     });

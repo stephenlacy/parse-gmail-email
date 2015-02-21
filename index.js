@@ -14,11 +14,14 @@ module.exports = function(data, cb) {
     return cb(new Error('email headers required'));
   }
 
-  var email = {};
+  var email = {
+    headers: {}
+  };
 
   var headers = data.payload.headers;
   for (i = 0; i < headers.length; i++) {
     var header = headers[i];
+    email.headers[header.name] = header.value;
 
     if (header.name && header.name === 'To') {
       email.to = header.value;
