@@ -1,7 +1,7 @@
 {
   "name": "parse-gmail-email",
   "description": "Parse gmail API emails",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Steve Lacy <me@slacy.me> (http://slacy.me)",
   "repository": {
     "type": "git",
