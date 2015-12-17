@@ -3,6 +3,10 @@
   "description": "Parse gmail API emails",
   "version": "1.0.0",
   "author": "Steve Lacy <me@slacy.me> (http://slacy.me)",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stevelacy/parse-gmail-email.git"
+  },
   "dependencies": {
     "addressparser": "^0.3.2"
   },
@@ -15,5 +19,6 @@
   },
   "files": [
     "index.js"
-  ]
+  ],
+  "license": "MIT"
 }
