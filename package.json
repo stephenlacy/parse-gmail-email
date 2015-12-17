@@ -1,15 +1,19 @@
 {
   "name": "parse-gmail-email",
-  "version": "0.0.1",
+  "description": "Parse gmail API emails",
+  "version": "1.0.0",
   "author": "Steve Lacy <me@slacy.me> (http://slacy.me)",
   "dependencies": {
     "addressparser": "^0.3.2"
   },
   "devDependencies": {
-    "mocha": "^2.1.0",
-    "should": "^5.0.0"
+    "mocha": "^2.3.4",
+    "should": "^8.0.1"
   },
   "scripts": {
     "test": "mocha --reporter spec test/"
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }
