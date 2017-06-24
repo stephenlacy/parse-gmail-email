@@ -26,7 +26,6 @@ module.exports = function(data, cb) {
     labelIds: data.labelIds,
     headers: {},
     date: date,
-    snippet: data.snippet,
   };
 
   var headers = data.payload.headers;
