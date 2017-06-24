@@ -20,6 +20,11 @@ module.exports = function(data, cb) {
   }
 
   var email = {
+    id: data.id,
+    threadId: data.threadId,
+    snippet: data.snippet,
+    labelIds: data.labelIds,
+    headers: {},
     date: date,
     snippet: data.snippet,
   };
@@ -27,6 +32,7 @@ module.exports = function(data, cb) {
   var headers = data.payload.headers;
   for (i = 0; i < headers.length; i++) {
     var header = headers[i];
+    email.headers[header.name] = header.value;
 
     if (header.name && header.name === 'To') {
       email.to = header.value;
@@ -44,15 +50,12 @@ module.exports = function(data, cb) {
       email.bcc = header.value;
     }
   }
-  
-  email.labelIds = data.labelIds;
-  var parsedFrom = addressparser(email.from)[0];
 
+  var parsedFrom = addressparser(email.from)[0];
   email.from = {
     name: parsedFrom.name || '',
     address: parsedFrom.address.toLowerCase()
   };
-
   if (email.from.name === '' || email.from.name === ' ') {
     email.from.name = email.from.address.toLowerCase();
   }
