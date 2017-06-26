@@ -86,10 +86,10 @@ describe('parseEmail', function() {
 
   it('should correctly place attachment ids and filenames', function(done) {
     parseEmail(email, function(err, data) {
-      should.exist(data.attachments['2']);
-      should.exist(data.attachments['2'].filename);
-      should(data.attachments['2'].filename).equal('great-websites.md');
-      should(data.attachments['2'].attachmentId).equal('SUCHIDHERE');
+      should.exist(data.attachments[0]);
+      should.exist(data.attachments[0].filename);
+      should(data.attachments[0].filename).equal('great-websites.md');
+      should(data.attachments[0].id).equal('SUCHIDHERE');
 
       done();
     });
