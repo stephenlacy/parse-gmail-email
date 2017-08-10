@@ -34,11 +34,7 @@
    },
    {
     "name": "To",
-    "value": "Steve Lacy <me@slacy.me>, amos.kyler@gmail.com, steve@wearefractal.com"
-   },
-   {
-    "name": "Cc",
-    "value": "test@test.com, Aaron Murray <funkytek@wearefractal.com>"
+    "value": "Steve Lacy <me@slacy.me>, amos.kyler@gmail.com, steve@domain.com"
    },
    {
     "name": "Date",

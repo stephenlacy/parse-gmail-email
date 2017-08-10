@@ -20,8 +20,7 @@ parse(email, function(err, data) {
     from: { name: 'Steve Lacy', address: 'me@slacy.me' },
     to: [ { address: 'me@slacy.me', name: 'Steve Lacy' } ],
     cc: [
-      { address: 'test@test.com', name: '' },
-      { address: 'funkytek@wearefractal.com', name: 'Aaron Murray' }
+      { address: 'test@test.com', name: '' }
     ],
     id: '14b9d36df0e',
     threadId: '14b9d3694f7',
